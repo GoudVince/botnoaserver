@@ -27,7 +27,7 @@ module.exports.run = async (client, message, args) => {
             }
 
         }).catch(error => {
-            return message.reply("Type een getal groter dan 0!");
+            return message.reply("Type een getal tussen de 0 en de 100!");
         });
     
     }else{
