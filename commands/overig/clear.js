@@ -8,7 +8,7 @@ module.exports.run = async (client, message, args) => {
 
     if (parseInt(args[0])){
 
-        var amount = parseInt(args[0]) + 1;
+        var amount = parseInt(args[0]) + 10;
 
         message.channel.bulkDelete(amount).then(() => {
 
