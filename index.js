@@ -3,6 +3,7 @@ const fs = require ("fs")
 const { Client, Intents, Collection, MessageEmbed } = require("discord.js");
 const Discord = require('discord.js');
 const { fstat, fsync } = require("fs");
+const { error } = require("console");
 const client = new Client({
     intents: [Intents.FLAGS.GUILD_PRESENCES,32767, Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MEMBERS, Intents.FLAGS.GUILD_MESSAGES,Intents.FLAGS.GUILD_VOICE_STATES, Intents.FLAGS.GUILD_MESSAGE_REACTIONS, Intents.FLAGS.GUILD_EMOJIS_AND_STICKERS, Discord.Intents.FLAGS.GUILDS,
     Discord.Intents.FLAGS.GUILD_VOICE_STATES,
