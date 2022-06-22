@@ -16,7 +16,7 @@ const client = new Client({
  
 client.on("ready", () => {
     console.log((`${client.user.username} is klaar voor gebruik`))
-    client.user.setActivity("iedereen👀", { type: 'WATCHING' });
+    client.user.setActivity("u👀", { type: 'WATCHING' });
     client.user.setStatus("dnd")
  
 });
