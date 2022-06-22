@@ -2,7 +2,7 @@ const discord = require('discord.js');
 
 module.exports.run = async (client, message, args) => {
 
-    const categoryID = "988139409377493092";
+    const categoryID = "989214429340110919";
 
     var userName = message.author.username;
 
@@ -81,7 +81,7 @@ module.exports.run = async (client, message, args) => {
             settedParent.send({embeds: [embedParent] });
 
         }).catch(err =>{
-            message.channel.send('❌ er is iets mis gegaan');
+            message.channel.send('❌ er is iets mis gegaa');
         })
     }).catch(err =>{
         message.channel.send('❌ er is iets mis gegaan');
