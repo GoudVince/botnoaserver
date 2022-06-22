@@ -69,7 +69,7 @@ module.exports.run = async (client, message, args) => {
             today = `${dd}/${mm}/${yyyy}`;
 
             let embedParent = new discord.MessageEmbed()
-                .setAuthor(message.author.username, message.author.displayAvatarURL({ size: 4096 }))
+                .setauthor(message.author.username, message.author.displayAvatarURL({ size: 4096 }))
                 .setTitle('Nieuw ticket')
                 .addFields(
                     {name: "Reden", value: reason , inline: true},
