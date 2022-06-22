@@ -81,7 +81,7 @@ module.exports.run = async (client, message, args) => {
             settedParent.send({embeds: [embedParent] });
 
         }).catch(err =>{
-            message.channel.send('✅ Ticket aangemaakt');
+            message.channel.send('❌ er is iets mis gegaan');
         })
     }).catch(err =>{
         message.channel.send('❌ er is iets mis gegaan');

@@ -1,3 +1,5 @@
+const discord = require('discord.js');
+
 module.exports.run = async (client, message, args) => {
  
     var number =  Math.ceil( Math.random() *6);
