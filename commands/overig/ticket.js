@@ -76,7 +76,7 @@ module.exports.run = async (client, message, args) => {
                     {name: "Aangemaakt op", value: today , inline: true}
                 );
             
-            message.channel.send('✅ Ticket aangemaakt.'); 
+            // message.channel.send('✅ Ticket aangemaakt.'); 
 
             settedParent.send({embeds: [embedParent] });
 
