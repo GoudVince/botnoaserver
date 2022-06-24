@@ -33,9 +33,53 @@ module.exports.run = async (client, message, args) => {
 
         createdChan.setParent(categoryID).then((settedParent) => {
 
+            // Perms zodat iedereen niets kan lezen.
+            settedParent.permissionOverwrites.edit(message.guild.roles.cache.find(x => x.name === "@everyone"), {
+            
+                SEND_MESSAGES: false,
+                VIEW_CHANNEL: false
+            
+            });
+            
+            // READ_MESSAGE_HISTORY Was vroeger READ_MESSAGES
+            // Perms zodat de gebruiker die het command heeft getypt alles kan zien van zijn ticket.
+            settedParent.permissionOverwrites.edit(message.author.id, {
+                CREATE_INSTANT_INVITE: false,
+                READ_MESSAGE_HISTORY: true,
+                SEND_MESSAGES: true,
+                ATTACH_FILES: true,
+                CONNECT: true,
+                ADD_REACTIONS: true
+            });
+            
+            // Perms zodat de gebruikers die admin zijn alles kunnen zien van zijn ticket.
+            settedParent.permissionOverwrites.edit(message.guild.roles.cache.find(x => x.name === "moderator"), {
+                CREATE_INSTANT_INVITE: false,
+                READ_MESSAGE_HISTORY: true,
+                SEND_MESSAGES: true,
+                ATTACH_FILES: true,
+                CONNECT: true,
+                ADD_REACTIONS: true
+            });
+            
+            let today = new Date();
+            let dd = String(today.getDate()).padStart(2, '0'); // Nul toevoegen als het bv. 1 is -> 01
+            let mm = String(today.getMonth() + 1).padStart(2, '0');
+            let yyyy = today.getFullYear();
+            today = `${dd}/${mm}/${yyyy}`;
+            
+            let embedParent = new discord.MessageEmbed()
+                .setAuthor(message.author.username, message.author.displayAvatarURL({ size: 4096 }))
+                .setTitle('Nieuw ticket')
+                .addField(
+                    {name: "Reden", value: reason , inline: true},
+                    {name: "Aangemaakt op", value: today , inline: true}
+                );
+            
             message.channel.send('✅ Ticket aangemaakt.'); 
 
             settedParent.send({embeds: [embedParent] });
+
 
         }).catch(err =>{
             message.channel.send('❌ er is iets mis gegaan');
